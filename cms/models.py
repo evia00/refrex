@@ -3,7 +3,7 @@ from django.db import models
 
 class Auth(models.Model):
     """認可"""
-    authId = models.CharField('認可ID', max_length=255)
+    authId = models.CharField('認可ID', max_length=255, unique=True)
     userId = models.CharField('ユーザID', max_length=255)
     regTs = models.DateTimeField('登録日時', auto_now_add=True)
 
@@ -13,7 +13,7 @@ class Auth(models.Model):
 
 class RefreshToken(models.Model):
     """リフレッシュトークン"""
-    refreshTokenId = models.CharField('リフレッシュトークンID', max_length=255)
+    refreshTokenId = models.CharField('リフレッシュトークンID', max_length=255, unique=True)
     authId = models.CharField('認可ID', max_length=255)
     refreshToken = models.CharField('リフレッシュトークン', max_length=255)
     validTs = models.TimeField('有効期限')
@@ -25,7 +25,7 @@ class RefreshToken(models.Model):
 
 class AccessToken(models.Model):
     """アクセストークン"""
-    AccessTokenId = models.CharField('アクセストークンID', max_length=255)
+    AccessTokenId = models.CharField('アクセストークンID', max_length=255, unique=True)
     refreshTokenId = models.CharField('リフレッシュトークンID', max_length=255)
     AccessToken = models.CharField('アクセストークン', max_length=255)
     validTs = models.TimeField('有効期限')
@@ -37,7 +37,7 @@ class AccessToken(models.Model):
 
 class User(models.Model):
     """ユーザ"""
-    userId = models.CharField('ユーザID', max_length=255, primary_key=True)
+    userId = models.CharField('ユーザID', max_length=255)
     password = models.CharField('パスワード', max_length=255)
 
     def __str__(self):

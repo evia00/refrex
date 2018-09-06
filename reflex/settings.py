@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cms',
     'bootstrap4',
+    'sequences.apps.SequencesConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,18 @@
+{% extends "cms/base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}ログイン{% endblock title %}
+
+{% block content %}
+    <h4 class="mt-4 mb-5 border-bottom">ログイン</h4>
+    <form action="{% url 'cms:login' %}" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form layout='horizontal' %}
+      <div class="form-group row">
+        <div class="offset-md-3 col-md-9">
+          <button type="submit" class="btn btn-primary">送信</button>
+        </div>
+      </div>
+    </form>
+    <a href="{% url 'cms:add_user' %}" class="btn btn-secondary btn-sm">登録</a>
+{% endblock content %}
