@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from cms.models import User, Auth
+from cms.models import Auth, User
 
 
 class UserAdmin(admin.ModelAdmin):

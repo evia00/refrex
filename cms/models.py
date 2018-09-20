@@ -25,18 +25,19 @@ class RefreshToken(models.Model):
 
 class AccessToken(models.Model):
     """アクセストークン"""
-    AccessTokenId = models.CharField('アクセストークンID', max_length=255, unique=True)
+    accessTokenId = models.CharField('アクセストークンID', max_length=255, unique=True)
     refreshTokenId = models.CharField('リフレッシュトークンID', max_length=255)
-    AccessToken = models.CharField('アクセストークン', max_length=255)
+    accessToken = models.CharField('アクセストークン', max_length=255)
     validTs = models.TimeField('有効期限')
     regTs = models.DateTimeField('登録日時', auto_now_add=True)
 
     def __str__(self):
-        return self.AccessTokenId
+        return self.accessTokenId
 
 
 class User(models.Model):
     """ユーザ"""
+    id = models.IntegerField('ID', unique=True, primary_key=True)
     userId = models.CharField('ユーザID', max_length=255)
     password = models.CharField('パスワード', max_length=255)
 

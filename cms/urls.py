@@ -6,5 +6,5 @@ app_name = 'cms'
 urlpatterns = [
     path('login/', views.login, name='login'),
     path('add/', views.add_user, name='add_user'),
-
+    path('del/', views.del_users, name='del_users'),
 ]
